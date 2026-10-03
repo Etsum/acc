@@ -23,7 +23,7 @@ not_charging() {
   local battStatusOverride="${battStatusOverride-}"
   local battStatusWorkaround=${battStatusWorkaround-}
 
-  tt "${chargingSwitch[$*]-}" "*\ --" || battStatusOverride=
+  tt "${chargingSwitch[*]-}" "*\ --" || battStatusOverride=
 
   ! tt "$currFile" "*/current_now" && battStatusWorkaround=false || {
     [ ${ampFactor:-$ampFactor_} -eq 1000 ] || idleThreshold=${idleThreshold}000
